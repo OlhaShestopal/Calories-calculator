@@ -20,8 +20,8 @@ function EatingList({handleRoute}) {
           </div>
           <div className="eating__content">
             <img className='eating__img' src={item.img} alt='eat' />
-            <button className='btn-add' onClick={handleRoute}>
-              <img className='btn-add-img' src={add} alt='add' />
+            <button className='btn-icon' onClick={handleRoute}>
+              <img className='btn-icon-img' src={add} alt='add' />
             </button>
           </div>
         </li>

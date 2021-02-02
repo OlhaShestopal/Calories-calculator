@@ -1,3 +1,23 @@
+@import '../../assets/var';
+
+.search-form{
+  display: flex;
+}
 .input-search{
-  width: 100%;
+  flex: 1 0;
+}
+.btn-search{
+  margin-left: 5px;
+}
+
+.btn-icon{
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  background: inherit;
+}
+.btn-icon-img{
+  display: block;
+  width: 40px;
+  height: 40px;
 }
