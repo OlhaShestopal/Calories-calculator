@@ -1,0 +1,15 @@
+@import '../../assets/var';
+.input{
+  padding: 10px 10px;
+  border-radius: $border-radius;
+  border: none;
+  font-size: 20px;
+  color: #000;
+  outline: none;
+  box-shadow:$shadow;
+  transition: box-shadow 0.25s ease-in-out;
+  &:active,
+  &focus{
+    box-shadow: none;
+  }
+}

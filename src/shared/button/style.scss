@@ -1,0 +1,29 @@
+@import '../../assets/var.scss';
+
+.button {
+  padding: 12px 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background:$color1-2;
+
+  
+  border-radius: $border-radius;
+  box-shadow:$shadow;
+  transition: box-shadow 0.2s ease-in-out;
+  outline: none;
+  font-weight: 400;
+  &:focus,
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.btn-update{
+  font-size: 14px;
+  
+  max-width: 170px;
+}

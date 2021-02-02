@@ -1,0 +1,27 @@
+
+@import '../../assets/var.scss';
+
+.calculating{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+
+}
+.calculating__title{
+  padding-top: $pad-top;
+  font-size: 22px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+}
+.calculating__item:not(:first-child) {
+    margin-top: 15px;
+}
+
+.calculating__item-button{
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}

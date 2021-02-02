@@ -1,0 +1,56 @@
+@import '../../assets/var.scss';
+
+.eating__list{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+
+}
+.eating__item{
+  list-style: none;
+  padding: 15px 30px;
+  width: 100%;
+  background: #f4f4f4;
+
+  border-radius: $border-rad-mini;
+
+  
+  &:not(:last-child){
+    margin-bottom: 25px;
+  }
+}
+.eating__item-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.eating__name{
+  font-size: 20px;
+  font-weight: 500;
+}
+.eating__calories{
+  font-weight: 500;
+  font-size: 14px;
+}
+.eating__content{
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.eating__img{
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+.btn-add{
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  background: inherit;
+}
+.btn-add-img{
+  display: block;
+  width: 30px;
+  height: 30px;
+}

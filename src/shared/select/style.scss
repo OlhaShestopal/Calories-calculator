@@ -1,0 +1,47 @@
+@import '../../assets/var.scss';
+
+.calculating__item-select {
+  position: relative;
+  display: flex;
+  height: 3em;
+  line-height: 3;
+  overflow: hidden;
+  color: $color1-2;
+  
+}
+select {
+  all: unset; 
+  padding-right: 15px;
+  background: $white;
+  border-radius: 25px;
+  border-bottom: 5px solid $color1-2;
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+  padding: 0 .5em;
+  cursor: pointer;
+
+  outline: none;
+  box-shadow:$shadow;
+  transition: box-shadow 0.25s ease-in-out;
+  &:active,
+  &focus{
+    box-shadow: none;
+  }
+}
+
+.calculating__item-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: $color1-2;
+  padding: 0 1em;
+  cursor: pointer;
+  pointer-events: none;
+  transition: .25s all ease;
+}
+/* Transition */
+.calculating__item-select:hover::after {
+  color: grey;
+}
