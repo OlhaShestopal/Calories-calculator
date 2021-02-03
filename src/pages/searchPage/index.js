@@ -1,15 +1,16 @@
 import './style.scss'
 import {useStoreon} from 'storeon/react'
 import {ModalProduct} from '../../components/modalProduct/index.js'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '../../shared/button'
 import {NotFoundModal} from '../../components/modalNotFound/index.js'
 import back from '../../assets/img/back.svg'
+
+
 function Search (props){
+
   const {products, dispatch}=useStoreon('products');
   const [productName, setProductName]=useState('');
-
-
   const handlerequest = (e) => {
     e.preventDefault();
     dispatch('fetchProducts', {url: '/nutrition', method: 'GET', query: {query: productName} });
@@ -17,8 +18,14 @@ function Search (props){
 
   const handleBack = () => {
     props.history.push('/dashboard')
-    
+    // window.location.reload();
   }
+  useEffect(() => {
+    return () => {
+      dispatch('product/resetSerchState')
+    }
+  },[dispatch])
+
   
   return(
   <div className='container'>

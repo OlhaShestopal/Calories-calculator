@@ -1,0 +1,21 @@
+
+.icon-button {
+  background: none;
+  cursor: pointer;
+  border: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.icon-button--close {
+  background: url("../../assets/img/close.svg") center center no-repeat;
+  background-size: 36px;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
