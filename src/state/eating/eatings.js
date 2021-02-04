@@ -9,23 +9,24 @@ const eatings = (store) =>{
       list:[],
       totalEatCalories: '',
       freeCalories:'',
-      typeLocation:''
+      locationType: ''
+      
     }
   } ))
 
 store.on('eatings/fetchEatings', async (state) => {
     const list = [
       {
-        id: 1, name: 'Сніданок', calories: 200, img: Breakfast,type: 'brackfast'
+        id: 1, name: 'Breakfast', calories: 200, img: Breakfast, type: 'breakfast'
       },
       {
-        id: 2, name: 'Обід', calories: 100, img: Lunch,type: ''
+        id: 2, name: 'Lunch', calories: 100, img: Lunch, type: 'lunch'
       },
       {
-        id: 3, name: 'Вечеря', calories: 300, img: Supper,type: ''
+        id: 3, name: 'Supper', calories: 300, img: Supper, type: 'supper'
       },
       {
-        id: 4, name: 'Перекус', calories: 300, img: Snack,type: ''
+        id: 4, name: 'Snack', calories: 300, img: Snack, type: 'snack'
       }
     ];
 
@@ -33,7 +34,7 @@ store.on('eatings/fetchEatings', async (state) => {
   });
 
 
-  store.on('eatings/updateEatings', (state, list) => {
+store.on('eatings/updateEatings', (state, list) => {
     const totalEatings = list.reduce((total, current) => total + current.calories, 0);
     const freeCalories = +state.storage.totalCalories - totalEatings;
     return {
@@ -47,9 +48,17 @@ store.on('eatings/fetchEatings', async (state) => {
     }
   });
 
-store.on('saveLocationType', (_,payload)=>{
+store.on('setTypeLocation', (state, payload) => {
+  return{
+    ...state,
+    eatings:{
+      ...state.eatings,
+      locationType: payload.locationType
 
+    }
+  }
 })
+
 }
 export{
   eatings

@@ -18,6 +18,7 @@ function Dashboard (props){
       pathname: '/search',
       state: {type}
     })
+    
   }
   return(
     <div className="dashboard">

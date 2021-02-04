@@ -9,6 +9,11 @@ function EatingList({handleRoute}) {
     dispatch('eatings/fetchEatings');
   }, [dispatch]);
   
+  const handleRouteSetLocation = (location) => {
+    handleRoute(location)
+    dispatch('setTypeLocation', {locationType:location})
+  };
+
   return (
     <ul className='eating__list'>
       {eatings.list.map(item => 
@@ -20,7 +25,7 @@ function EatingList({handleRoute}) {
           </div>
           <div className="eating__content">
             <img className='eating__img' src={item.img} alt='eat' />
-            <button className='btn-icon' onClick={() => handleRoute(item.type)}>
+            <button className='btn-icon' onClick={() => handleRouteSetLocation(item.type)}>
               <img className='btn-icon-img' src={add} alt='add' />
             </button>
           </div>

@@ -10,6 +10,7 @@ import back from '../../assets/img/back.svg'
 function Search (props){
 
   const {products, dispatch}=useStoreon('products');
+  const {eatings}=useStoreon('eatings');
   const [productName, setProductName]=useState('');
   const handlerequest = (e) => {
     e.preventDefault();
@@ -18,10 +19,8 @@ function Search (props){
 
   const handleBack = () => {
     props.history.push('/dashboard')
-    // window.location.reload();
   }
   useEffect(() => {
-    console.log(products[props.location.state.type])
     return () => {
       dispatch('product/resetSerchState')
     }

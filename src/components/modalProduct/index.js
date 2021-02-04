@@ -6,7 +6,7 @@ import {IconButton} from '../../shared/icon-button/index'
 import { useState } from 'react'
 
 
-function ModalProduct () {
+function ModalProduct (props) {
   const {products, dispatch: productsDispatch}=useStoreon('products')
   const {dispatch: storageDispatch}=useStoreon('storage')
   const {name, calories, fat_total_g, protein_g,carbohydrates_total_g} =  products.ProductProperties
@@ -16,7 +16,7 @@ function ModalProduct () {
   const handleSubmit = (event) => {
     event.preventDefault();
     productsDispatch('products/save',{
-      productWeight, 
+      productWeight, type: props.type
     })
     productsDispatch('product/resetSerchState')
     storageDispatch('saveStorage', products.listProducts)
