@@ -3,7 +3,8 @@ import {request} from '../../api/request';
 const products = (store) =>{
   store.on('@init', () =>({
     products: {
-      list:[],
+      listProducts:[],
+      brackfast: [],
       ProductProperties: null,
       productWeight: '',
       isRequestSuccess: true,
@@ -51,7 +52,7 @@ const products = (store) =>{
     return {
       products: {
         ...state.products,
-        list:[...state.products.list, listItem]
+        listProducts:[...state.products.listProducts, listItem]
       }
     }
 }

@@ -7,7 +7,7 @@ import { Search } from './pages/searchPage';
 
 
 function App() {
-  const {totalCalories} = useStoreon('totalCalories');
+  const {totalCalories} = useStoreon('storage');
   return (
     <Router>
       <Switch>

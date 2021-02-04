@@ -21,6 +21,7 @@ function Search (props){
     // window.location.reload();
   }
   useEffect(() => {
+    console.log(products[props.location.state.type])
     return () => {
       dispatch('product/resetSerchState')
     }

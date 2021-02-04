@@ -8,23 +8,24 @@ const eatings = (store) =>{
     eatings: {
       list:[],
       totalEatCalories: '',
-      freeCalories:''
+      freeCalories:'',
+      typeLocation:''
     }
   } ))
 
 store.on('eatings/fetchEatings', async (state) => {
     const list = [
       {
-        id: 1, name: 'Сніданок', calories: 200, img: Breakfast
+        id: 1, name: 'Сніданок', calories: 200, img: Breakfast,type: 'brackfast'
       },
       {
-        id: 2, name: 'Обід', calories: 100, img: Lunch
+        id: 2, name: 'Обід', calories: 100, img: Lunch,type: ''
       },
       {
-        id: 3, name: 'Вечеря', calories: 300, img: Supper
+        id: 3, name: 'Вечеря', calories: 300, img: Supper,type: ''
       },
       {
-        id: 4, name: 'Перекус', calories: 300, img: Snack
+        id: 4, name: 'Перекус', calories: 300, img: Snack,type: ''
       }
     ];
 
@@ -34,7 +35,7 @@ store.on('eatings/fetchEatings', async (state) => {
 
   store.on('eatings/updateEatings', (state, list) => {
     const totalEatings = list.reduce((total, current) => total + current.calories, 0);
-    const freeCalories = +state.totalCalories - totalEatings;
+    const freeCalories = +state.storage.totalCalories - totalEatings;
     return {
       ...state,
       eatings: {
@@ -46,6 +47,9 @@ store.on('eatings/fetchEatings', async (state) => {
     }
   });
 
+store.on('saveLocationType', (_,payload)=>{
+
+})
 }
 export{
   eatings

@@ -9,7 +9,7 @@ const calories = (store) => {
 
   store.on('setTotalCalories', (_, params) => {
     const yourCalories = calcTotal(params);
-  
+    
     return{
       totalCalories: yourCalories,
     }
