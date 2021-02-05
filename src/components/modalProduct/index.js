@@ -16,7 +16,7 @@ function ModalProduct (props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     productsDispatch('products/save',{
-      productWeight, type: props.type
+      productWeight
     })
     productsDispatch('product/resetSerchState')
     storageDispatch('saveStorage', products.listProducts)
