@@ -33,7 +33,7 @@ function Calculate(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     caloriesDispatch('setTotalCalories', {age,weight,height,gender,activity});
-    storeDispatch('saveStorage',totalCalories)
+    storeDispatch('saveStorageCalories',totalCalories)
     props.history.push('/dashboard')
   }
 

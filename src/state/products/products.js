@@ -3,10 +3,10 @@ import {request} from '../../api/request';
 const products = (store) =>{
   store.on('@init', () =>({
     products: {
-      breakfast: [],
-      lunch: [],
-      supper: [],
-      snack: [],
+        breakfast: [],
+        lunch: [],
+        supper: [],
+        snack: [],
       ProductProperties: null,
       productWeight: '',
       isRequestSuccess: true,
@@ -43,7 +43,7 @@ store.on('products/save', (state, payload) => {
       return{
         products: {
           ...state.products,
-          breakfast:[...state.products.breakfast, listItem],
+            breakfast:[...state.products.breakfast, listItem],
           
         }
       }
@@ -51,29 +51,25 @@ store.on('products/save', (state, payload) => {
         return{
           products: {
             ...state.products,
-            lunch:[...state.products.lunch, listItem],
-            
+              lunch:[...state.products.lunch, listItem],
           }
         }
         case 'supper':
           return{
             products: {
               ...state.products,
-              supper:[...state.products.supper, listItem],
-              
+                supper:[...state.products.supper, listItem],
             }
           }
           case 'snack':
             return{
               products: {
                 ...state.products,
-                snack:[...state.products.snack, listItem],
-                
+                  snack:[...state.products.snack, listItem],
+                }
               }
             }
   }
-  
-}
 )
 
 

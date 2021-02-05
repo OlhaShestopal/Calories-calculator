@@ -12,16 +12,27 @@ function ModalProduct (props) {
   const {name, calories, fat_total_g, protein_g,carbohydrates_total_g} =  products.ProductProperties
   const [productWeight, setProductWeight]=useState('')
   
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    productsDispatch('products/save',{
-      productWeight
-    })
-    productsDispatch('product/resetSerchState')
-    storageDispatch('saveStorage', products.listProducts)
-    
-  }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   useEffect(() => {
+  //     productsDispatch('products/save',{
+  //       productWeight
+  //     })
+  //     productsDispatch('product/resetSerchState')
+  //     storageDispatch('saveStorage', products.listProducts)
+  //   },[productsDispatch] )
+  // }
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      productsDispatch('products/save',{
+        productWeight
+      })
+      productsDispatch('product/resetSerchState')
+      storageDispatch('saveStorageProducts', products)
+      
+    }
+
   return(
     <div className="modal">
       <form className='modal__body'>
