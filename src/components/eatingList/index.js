@@ -5,13 +5,15 @@ import './style.scss'
 
 function EatingList({handleRoute}) {
   const {eatings, dispatch} = useStoreon('eatings')
+
   useEffect(() => {
     dispatch('eatings/fetchEatings');
   }, [dispatch]);
   
   const handleRouteSetLocation = (location) => {
     handleRoute(location)
-    dispatch('setTypeLocation', {locationType:location})
+    dispatch('setTypeLocation', {locationType:location});
+    
   };
 
   return (
@@ -20,7 +22,7 @@ function EatingList({handleRoute}) {
         <li key={item.id} className='eating__item'>
           <div className='eating__item-header'>
             <span className='eating__name'>{item.name}</span>
-            <span className='eating__calories'>{item.calories} калорій
+            <span className='eating__calories'>{item.calories} kcals
           </span>
           </div>
           <div className="eating__content">

@@ -4,16 +4,16 @@ function DashboardDiagram (props) {
   return (
     <div className='dashboard__diagram'>
       <div>
-        <p>Всього </p>
-        <span>{props.calories}  калорій</span>
+        <p> Total: </p>
+        <span>{props.calories} kcals</span>
       </div>
       <div>
-        <p>Використано</p>
-        <span>{props.sumEatCal}  калорій</span>
+        <p>Used:</p>
+        <span>{props.sumEatCal}  kcals</span>
       </div> 
       <div>
-        <p> Залишилось</p>
-        <span>{props.freeCal} калорій</span>
+        <p>Stay:</p>
+        <span>{props.freeCal} kcals</span>
       </div>
   </div>
   )

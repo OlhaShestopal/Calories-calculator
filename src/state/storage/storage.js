@@ -1,11 +1,12 @@
 const storage = (store) => {
   store.on('@init', ()=> ({
     storage: {
-      breakfastStorage: [],
-      lunchStorage: [],
-      supperStorage: [],
-      snackStorage: [],
-      totalCalories: ''
+      breakfast: [],
+      lunch: [],
+      supper: [], 
+      snack: [],
+      totalCalories: '',
+      active: []
     }
   }))
 
@@ -24,33 +25,69 @@ store.on('saveStorageProducts', (state, _) => {
       return{
         storage: {
           ...state.storage,
-            breakfasStorege:state.products.breakfast,
+            breakfast:state.products.breakfast,
         }
       }
       case 'lunch':
         return{
           storage: {
             ...state.storage,
-              lunchStorage:state.products.lunch,
+              lunch:state.products.lunch,
           }
         }
         case 'supper':
           return{
             storage: {
               ...state.storage,
-                supperStorage:state.products.supper,
+                supper:state.products.supper,
             }
           }
-          case 'snaсk':
+          case 'snack':
             return{
               storage: {
                 ...state.storage,
-                  snackStorage:state.products.snack,
+                snack:state.products.snack,
               }
             }
     }
   })
+// store.on('storage/fetchActiveProductList', async (state, location)=>{
+// console.log(typeof(location))
+//   switch(location){
+//     case 'breakfast':
+//       return{
+//         storage: {
+//           ...state.storage,
+//             active:storage.breakfast,
+//         }
+//       }
+//       case 'lunch':
+//         return{
+//           storage: {
+//             ...state.storage,
+//             active:storage.lunch,
+//           }
+//         }
+//         case 'supper':
+//           return{
+//             storage: {
+//               ...state.storage,
+//               active:storage.supper,
+//             }
+//           }
+//           case 'snack':
+//             return{
+//               storage: {
+//                 ...state.storage,
+//                 active:storage.snack,
+//               }
+//             }
+//   }
+// })
+
 }
+
+
 
 export{
   storage

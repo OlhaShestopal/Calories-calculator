@@ -9,7 +9,7 @@ function Header ({handleRoute}){
     <header className='header-dashboard'>
       <Button className='btn-update'
         onClick={handleRoute}>
-          Оновити дані
+          Update data
       </Button>
     </header>
   )

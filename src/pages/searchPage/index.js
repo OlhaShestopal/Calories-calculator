@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '../../shared/button'
 import {NotFoundModal} from '../../components/modalNotFound/index.js'
 import back from '../../assets/img/back.svg'
+import {EatingsProductsList} from '../../components/eatingsProductsList'
 
 
 function Search (props){
@@ -29,19 +30,25 @@ function Search (props){
   
   return(
   <div className='container'>
-    <form className='search-form' onSubmit={handlerequest}>
-      <button className="btn-icon" onClick={handleBack}><img className='btn-icon-img' src={back} alt='back'/></button>
+    <form className='search-form'  onSubmit={handlerequest}>
+      <button className="btn-icon" 
+        onClick={handleBack}>
+        <img className='btn-icon-img' 
+        src={back} alt='back'/>
+      </button>
       <input className='input input-search' 
         value={productName} onChange={event => setProductName(event.target.value)}
         type='search'
         placeholder=" Введіть назву продукту...">
       </input>
-      <Button className='btn-search'>
+      <Button className='btn-search'
+        type='submit'>
         Search
       </Button>
     </form>
     {products.ProductProperties !== null && <ModalProduct/>}
     {!products.isRequestSuccess && <NotFoundModal/>}
+    <EatingsProductsList location={eatings.locationType}/>
   </div>
   
   )

@@ -1,22 +1,21 @@
-import './style.scss';
-import {Select} from '../../shared/select/index.js'
+import {Select} from '../../shared/select/index.js';
 import '../../shared/input/style.scss';
-import {Button} from '../../shared/button/index.js'
+import {Button} from '../../shared/button/index.js';
 import { useState } from 'react';
-import {useStoreon} from 'storeon/react'
+import {useStoreon} from 'storeon/react';
+import './style.scss';
 
 const listGender = [
-  {title: 'Ваша стать', value: '', id: '1'},
-  {title: 'Жінка', value: 'female', id: '2'},
-  {title: 'Чоловік', value: 'male', id: '3'},
+  {title: 'Your gender', value: '', id: '1'},
+  {title: 'Female', value: 'female', id: '2'},
+  {title: 'Male', value: 'male', id: '3'},
 ];
 
 const listActivity = [
-  {title: 'Активність', value: '', id: '1'},
-  {title: 'Низька активність', value: '1.2', id: '2'},
-  {title: 'Невисока активність', value: '1.375', id: '3'},
-  {title: 'Помірна активність', value: '1.55', id: '4'},
-  {title: 'Висока активність', value: '1.725', id: '5'}
+  {title: 'Activity', value: '', id: '1'},
+  {title: 'Low activity', value: '1.2', id: '2'},
+  {title: 'Moderate activity', value: '1.55', id: '3'},
+  {title: 'High activity', value: '1.725', id: '4'}
 ];
 
 
@@ -40,7 +39,7 @@ function Calculate(props) {
   return(
     <div className='container'>
       <form className="calculating"  onSubmit={handleSubmit}>
-          <h1 className='calculating__title'>Розрахуємо вашу потребу в калоріях</h1>
+          <h1 className='calculating__title'>Calculate your need for calories</h1>
           <div className="calculating__item calculating__item-select">
             <Select required value={gender} list={listGender} onChange={event => setGender(event.target.value)}/>
           </div>
@@ -48,26 +47,26 @@ function Calculate(props) {
             type="text"
             required
             className='input calculating__item'
-            placeholder="Введіть ріст"
+            placeholder="Enter your height"
             value={height} onChange={event => setHeight(event.target.value)}/>
           <input 
             type="text"
             required
             className='input calculating__item' 
-            placeholder="Введіть вагу"
+            placeholder="Enter your weight"
             value={weight} onChange={event => setWeight(event.target.value)}/>
           <input 
             type="text"
             required
             className='input calculating__item' 
-            placeholder="Введіть вік"
+            placeholder="Enter your age"
             value={age} onChange={event => setAge(event.target.value)}/>
           <div className="calculating__item calculating__item-select">
             <Select required
             value={activity} list={listActivity} onChange={event => setActivity(event.target.value)}/>
           </div>
           <Button className='calculating__item calculating__item-button'>
-            Розрахувати
+          Calculate
           </Button>
         </form>
     </div>

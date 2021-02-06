@@ -1,6 +1,7 @@
+import "./style.scss"
 function NotFoundModal () {
   return(
-    <h1>Not found</h1>
+    <h1 className="title-notFound">Product not found...</h1>
   )
 }
 
