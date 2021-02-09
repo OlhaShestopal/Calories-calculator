@@ -48,14 +48,14 @@ const storage = (store) => {
 store.on('saveStorageProducts', (state, _) => {
   const locationProducts = state.eatings.locationType;
 
-  // const totalCaloriesEat = state.storage[locationProducts].listProducts.reduce((total, current) => total + current.calories, 0).toFixed(2);
+  const totalCaloriesEat = state.storage[locationProducts].listProducts.reduce((total, current) => total + current.calories, 0).toFixed(2);
   // const totalEatings = list.reduce((total, current) => total + current.calories, 0);
 
-  // const totalFats = activeEat.listProducts.reduce((total, current) => total + ((current.fat_total_g*current.productWeight)/100), 0);
+  const totalFats = state.storage[locationProducts].listProducts.reduce((total, current) => total + current.fat_total_g, 0).toFixed(2);
 
-  // const  totalProtein = activeEat.listProducts.reduce((total, current) => total + ((current.protein_g*current.productWeight)/100), 0);
+  const  totalProtein = state.storage[locationProducts].listProducts.reduce((total, current) => total + current.protein_g, 0).toFixed(2);
 
-  // const totalCarbohydrates = activeEat.listProducts.reduce((total, current) => total + ((current.carbohydrates_total_g*current.productWeight)/100), 0);
+  const totalCarbohydrates = state.storage[locationProducts].listProducts.reduce((total, current) => total + current.carbohydrates_total_g, 0).toFixed(2);
 
       return{
         ...state,
@@ -64,10 +64,10 @@ store.on('saveStorageProducts', (state, _) => {
             [locationProducts]:{
               ...storage[locationProducts],
               listProducts: state.products[locationProducts],
-              // totalCaloriesEat: totalCaloriesEat, 
-              // totalFats: totalFats,
-              // totalProtein: totalProtein,
-              // totalCarbohydrates: totalCarbohydrates,
+              totalCaloriesEat: totalCaloriesEat, 
+              totalFats: totalFats,
+              totalProtein: totalProtein,
+              totalCarbohydrates: totalCarbohydrates,
             }
           }
       }})
