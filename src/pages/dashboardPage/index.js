@@ -16,6 +16,7 @@ function Dashboard (props){
   const handleSearchPage = (type) => {
     props.history.push({
       pathname: '/search',
+      search: `?location=${type}`,
       state: {type}
     })
   }

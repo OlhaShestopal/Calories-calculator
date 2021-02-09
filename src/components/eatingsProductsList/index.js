@@ -1,26 +1,21 @@
 import './style.scss'
 import { useStoreon} from "storeon/react"
-import{useEffect} from 'react'
-function EatingsProductsList ({location}) {
-const{storage, dispatch}=useStoreon('storage')
+import {useEffect} from 'react'
 
-// useEffect(() => {
-//   dispatch("storage/fetchActiveProductList", location);
-// }, [dispatch]);
 
-  return(
-    <>
-    <h1 className= "title">{location} </h1>
-    <ul>
-    {storage.active && storage.active.map(item=>{
-      <li>{item.name}</li>
-    })}
-    </ul>
-    
-    
-    </>
-  )
+function EatingsProductsList({location}) {
+    const {storage, dispatch} = useStoreon('storage');
+    // console.log(storage. activeMeal)
+    return (
+        <>
+            <h1 className="title-producs">{location} </h1>
+            <ul className='products__list'>
+            {/* {newStore.listProducts && newStore.listProducts.map(item => <li className="products__item"><span className="products__item-name" > {item.name}</span> <span className="products__item-calories">{item.calories} kcal</span></li>
+                )} */}
+            </ul>
+        </>
+    )
 }
 export {
-  EatingsProductsList
+    EatingsProductsList
 }
