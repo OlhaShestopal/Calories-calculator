@@ -18,7 +18,8 @@ function ModalProduct (props) {
       productWeight
     })
     productsDispatch('product/resetSerchState')
-    storageDispatch('saveStorageProducts', products)
+    storageDispatch('saveStorageProducts')
+    storageDispatch('storage/calculate')
     
   }
 
