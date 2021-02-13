@@ -5,6 +5,7 @@ import './style.scss'
 
 function EatingList({handleRoute}) {
   const {eatings, dispatch} = useStoreon('eatings')
+  const{storage} = useStoreon('storage')
 
   useEffect(() => {
     dispatch('eatings/fetchEatings');
@@ -22,7 +23,8 @@ function EatingList({handleRoute}) {
         <li key={item.id} className='eating__item'>
           <div className='eating__item-header'>
             <span className='eating__name'>{item.name}</span>
-            <span className='eating__calories'>{item.calories} kcals
+            <span className='eating__calories'>{
+            storage[item.type].totalCalories} kcals
           </span>
           </div>
           <div className="eating__content">

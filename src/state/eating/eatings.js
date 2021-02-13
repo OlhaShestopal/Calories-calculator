@@ -7,8 +7,8 @@ const eatings = (store) =>{
   store.on('@init', () =>({
     eatings: {
       list:[],
-      totalEatCalories: '',
-      freeCalories:'',
+      totalEatCalories: 0,
+      freeCalories:0,
       locationType: ''
       
     }
@@ -17,16 +17,16 @@ const eatings = (store) =>{
 store.on('eatings/fetchEatings', async (state) => {
     const list = [
       {
-        id: 1, name: 'Breakfast', calories: 200, img: Breakfast, type: 'breakfast'
+        id: 1, name: 'Breakfast', calories: state.storage.breakfast.totalCaloriesEat, img: Breakfast, type: 'breakfast'
       },
       {
-        id: 2, name: 'Lunch', calories: 100, img: Lunch, type: 'lunch'
+        id: 2, name: 'Lunch', calories: state.storage.lunch.totalCaloriesEat, img: Lunch, type: 'lunch'
       },
       {
-        id: 3, name: 'Supper', calories: 300, img: Supper, type: 'supper'
+        id: 3, name: 'Supper', calories: state.storage.supper.totalCaloriesEat, img: Supper, type: 'supper'
       },
       {
-        id: 4, name: 'Snack', calories: 300, img: Snack, type: 'snack'
+        id: 4, name: 'Snack', calories: state.storage.snack.totalCaloriesEat, img: Snack, type: 'snack'
       }
     ];
 
@@ -35,7 +35,8 @@ store.on('eatings/fetchEatings', async (state) => {
 
 
 store.on('eatings/updateEatings', (state, list) => {
-    const totalEatings = list.reduce((total, current) => total + current.calories, 0);
+  const totalEatings = state.storage.breakfast.totalCalories + state.storage.lunch.totalCalories + state.storage.supper.totalCalories + state.storage.snack.totalCalories;
+
     const freeCalories = +state.storage.totalCalories - totalEatings;
     return {
       ...state,
@@ -47,6 +48,7 @@ store.on('eatings/updateEatings', (state, list) => {
       }
     }
   });
+
 
 store.on('setTypeLocation', (state, payload) => {
   return{

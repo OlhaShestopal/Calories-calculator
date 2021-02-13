@@ -39,7 +39,7 @@ function Search (props){
       <input className='input input-search' 
         value={productName} onChange={event => setProductName(event.target.value)}
         type='search'
-        placeholder=" Введіть назву продукту...">
+        placeholder="Enter a product name...">
       </input>
       <Button className='btn-search'
         type='submit'>
