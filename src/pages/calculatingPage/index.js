@@ -20,7 +20,7 @@ const listActivity = [
 
 
 function Calculate(props) {
-  const {yourCalories, dispatch: caloriesDispatch}=useStoreon('calories')
+  const {totalCalories, dispatch: caloriesDispatch}=useStoreon('calories')
   const {dispatch: storeDispatch}=useStoreon('storage')
 
   const[gender, setGender]=useState('');
@@ -32,7 +32,7 @@ function Calculate(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     caloriesDispatch('setTotalCalories', {age,weight,height,gender,activity});
-    storeDispatch('saveStorageCalories',yourCalories)
+    storeDispatch('saveStorageCalories', totalCalories)
     props.history.push('/dashboard')
   }
 

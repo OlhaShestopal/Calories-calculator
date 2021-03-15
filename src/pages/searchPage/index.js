@@ -13,11 +13,13 @@ function Search (props){
   const {products, dispatch}=useStoreon('products');
   const {eatings}=useStoreon('eatings');
   const [productName, setProductName]=useState('');
+
+
   const handlerequest = (e) => {
     e.preventDefault();
     dispatch('fetchProducts', {url: '/nutrition', method: 'GET', query: {query: productName} });
+    
   }
-
   const handleBack = () => {
     props.history.push('/dashboard')
   }

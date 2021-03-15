@@ -4,14 +4,14 @@ import {calcTotal} from '../../pages/calculatingPage/lib/index.js'
 
 const calories = (store) => {
   store.on('@init', () => ({
-    yourCalories: ""
+    totalCalories: ""
   }));
 
   store.on('setTotalCalories', (_, params) => {
-    const yourCalories = calcTotal(params);
+    const totalCalories = calcTotal(params);
     
     return{
-      yourCalories: yourCalories,
+      totalCalories: totalCalories,
     }
   })
   

@@ -3,7 +3,7 @@ import '../../shared/input/style.scss'
 import {useStoreon} from 'storeon/react'
 import {Button} from '../../shared/button/index'
 import {IconButton} from '../../shared/icon-button/index'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 function ModalProduct (props) {
@@ -23,6 +23,10 @@ function ModalProduct (props) {
     
   }
 
+  const handleClose = (e) => {
+    e.preventDefault();
+    productsDispatch('product/resetSerchState')
+  }
   return(
     <div className="modal">
       <form className='modal__body'>
@@ -32,6 +36,7 @@ function ModalProduct (props) {
             className="modal__close"
             icon="close"
             aria-label="close modal"
+            handleCloseModal={handleClose}
             />
         </div>
       

@@ -7,11 +7,11 @@ import { Search } from './pages/searchPage';
 
 
 function App() {
-  const {totalCalories} = useStoreon('storage');
+  const {storage} = useStoreon('storage');
   return (
     <Router>
       <Switch>
-        {totalCalories ? <Redirect exact from="/" to="/dashboard" />: <Redirect exact from="/" to="/calculating" /> }
+        {storage.yourCalories ? <Redirect exact from="/" to="/dashboard" />: <Redirect exact from="/" to="/calculating" /> }
         <Route path="/calculating" component={Calculate}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/search" component={Search}/>

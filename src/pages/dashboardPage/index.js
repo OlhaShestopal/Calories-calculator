@@ -25,7 +25,7 @@ function Dashboard (props){
       <div className="container">
         <Header handleRoute={handleUpdateData}  />
         <DashboardDiagram 
-          calories={storage.totalCalories} 
+          calories={storage.yourCalories} 
           freeCal={eatings.freeCalories} 
           sumEatCal={eatings.totalEatCalories}/>
         <EatingList handleRoute={handleSearchPage} />

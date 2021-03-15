@@ -16,7 +16,6 @@ const store = createStoreon([
   isDev && storeonDevtools,
   isDev && storeonLogger,
   persistState(['storage'])
-  // persistState(['listProducts'])
 ]);
 
 export {

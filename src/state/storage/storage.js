@@ -93,6 +93,31 @@ store.on('storage/calculate',(state)=>{
     }
   }
 })
+
+store.on('storage/deleteProduct', (state,paiload)=>{
+  let locationProducts;
+  if (state.eatings.locationType){
+    locationProducts = state.eatings.locationType;
+  } else{
+    locationProducts = (window.location.search).slice(window.location.search.indexOf('=') + 1)
+  }
+  const listProducts = state.storage[locationProducts].listProducts.filter((item) => item.id !== paiload.id)
+
+  return{
+    ...state,
+    storage: {
+      ...state.storage,
+      [locationProducts]: {
+        ...state.storage[locationProducts],
+        listProducts: [...listProducts],
+      }
+    }
+  }
+
+
+})
+
+
 }
 
 

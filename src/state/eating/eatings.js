@@ -17,16 +17,16 @@ const eatings = (store) =>{
 store.on('eatings/fetchEatings', async (state) => {
     const list = [
       {
-        id: 1, name: 'Breakfast', calories: state.storage.breakfast.totalCaloriesEat, img: Breakfast, type: 'breakfast'
+        id: 1, name: 'Breakfast',  img: Breakfast, type: 'breakfast'
       },
       {
-        id: 2, name: 'Lunch', calories: state.storage.lunch.totalCaloriesEat, img: Lunch, type: 'lunch'
+        id: 2, name: 'Lunch', img: Lunch, type: 'lunch'
       },
       {
-        id: 3, name: 'Supper', calories: state.storage.supper.totalCaloriesEat, img: Supper, type: 'supper'
+        id: 3, name: 'Supper', img: Supper, type: 'supper'
       },
       {
-        id: 4, name: 'Snack', calories: state.storage.snack.totalCaloriesEat, img: Snack, type: 'snack'
+        id: 4, name: 'Snack',  img: Snack, type: 'snack'
       }
     ];
 
@@ -37,14 +37,14 @@ store.on('eatings/fetchEatings', async (state) => {
 store.on('eatings/updateEatings', (state, list) => {
   const totalEatings = state.storage.breakfast.totalCalories + state.storage.lunch.totalCalories + state.storage.supper.totalCalories + state.storage.snack.totalCalories;
 
-    const freeCalories = +state.storage.totalCalories - totalEatings;
+    const freeCalories = +state.storage.yourCalories - totalEatings;
     return {
       ...state,
       eatings: {
         ...state.eatings,
         list,
         totalEatCalories: totalEatings,
-        freeCalories
+        freeCalories: freeCalories
       }
     }
   });

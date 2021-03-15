@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 import {request} from '../../api/request';
 
 const products = (store) =>{
@@ -36,8 +37,9 @@ store.on('products/save', (state, payload) => {
   const productWeight = +payload.productWeight;
   const listItem = {...state.products.ProductProperties};
   listItem.productWeight = productWeight;
+  listItem.id = nanoid();
   
-  let locationProducts
+  let locationProducts;
   if (state.eatings.locationType){
     locationProducts = state.eatings.locationType;
   } else{
@@ -67,6 +69,7 @@ store.on('product/resetSerchState',(state)=>({
     
   }
 }))
+
 }
 
 
